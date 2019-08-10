@@ -13,9 +13,9 @@
     <!-- 强弱标志 -->
     <div class="input_span">
       <label style="margin-left:40px;">强度:</label>
-      <span id="one" :class="[isHidden?stronger1:'simplity']"></span>
-      <span id="two" :class="[isHidden?stronger2:'simplity']"></span>
-      <span id="three" :class="[isHidden?stronger3:'simplity']"></span>
+      <span id="one" :class="formInline.isHidden?stronger1:simplity"></span>
+      <span id="two" :class="formInline.isHidden?stronger2:simplity"></span>
+      <span id="three" :class="formInline.isHidden?stronger3:simplity"></span>
     </div>
     <div id="font">
       <span>弱</span>
@@ -34,7 +34,7 @@
   </Form>
 </template>
 <script>
-import checkStrong from "@/components/js/checkpassStrong.js";
+import checkStrong from "@/util/checkpassStrong";
 export default {
   data() {
     const validateuser = (rule, value, callback) => {
@@ -46,8 +46,10 @@ export default {
         callback();
       }
     };
-
+// 密码
     const validatePass = (rule, value, callback) => {
+      
+       this.password(value);
       if (value === "") {
         callback(new Error("请输入密码"));
       } else {
@@ -72,7 +74,11 @@ export default {
         password: "",
         rpassword: "",
         msgText: "",
-        isHidden: false
+        isHidden: false,
+        stronger1:'stronger1',
+        stronger2:'stronger2',
+        stronger3:'stronger3',
+        // simplity:'simplity'
       },
       ruleInline: {
         user: [
@@ -112,14 +118,15 @@ export default {
         }
       });
     },
-    password(newValue, oldValue) {
+    password(newValue) { 
       this.msgText = checkStrong(newValue);
-      if (this.msgText > 1 || this.msgText == 1) {
+      console.log(this.msgText);
+      if (this.msgText == 1) {
         this.formInline.isHidden = true;
       } else {
         this.formInline.isHidden = false;
       }
-      if (this.msgText > 2 || this.msgText == 2) {
+      if (this.msgText == 2) {
         this.formInline.isHidden = true;
       } else {
         this.formInline.isHidden = false;
@@ -175,13 +182,16 @@ export default {
 #font span:nth-child(3) {
   color: #00d1b2;
 }
-.stronger1{
+.stronger1 {
   background: red;
 }
-.stronger2{
+.stronger2 {
   background: green;
 }
-.stronger3{
+.stronger3 {
   background: yellow;
+}
+.simplity{
+  background: #eee;
 }
 </style>
