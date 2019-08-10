@@ -1,0 +1,64 @@
+{
+  "status": 0,
+  "message": "success",
+  "result": {
+      "totalMoney":59,
+      "list":[
+      {
+      "name": "面具1",
+      "id":1,
+      "price": 19,
+      "count": 1,
+      "amount": 1,
+      "imgPic": "https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=66125bdfb912c8fca0fefe9f9d6af920/f603918fa0ec08fa45a43a5859ee3d6d54fbdaac.jpg",
+      "gifts": [
+        {
+          "partId":"10001",
+          "partName":"打火机"
+        },
+        {
+          "partId":"10002",
+          "partName":"火柴"
+        }
+      ]
+      },
+      {
+      "name": "面具2",
+      "id":2,
+      "price": 20,
+      "count": 1,
+      "amount": 1,
+      "imgPic": "https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike150%2C5%2C5%2C150%2C50/sign=9100b5ce4c086e067ea5371963611091/7acb0a46f21fbe0942faeaeb6b600c338644adac.jpg",
+        "gifts": [
+          {
+            "partId":"10001",
+            "partName":"打火机"
+          },
+          {
+            "partId":"10002",
+            "partName":"火柴盒"
+          }
+        ]
+      },
+        {
+          "name": "面具3",
+          "id":3,
+          "price": 21,
+          "count": 1,
+          "amount": 1,
+          "imgPic": "https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike220%2C5%2C5%2C220%2C73/sign=98751435513d26973ade000f3492d99e/242dd42a2834349b3ba2477ac9ea15ce37d3beac.jpg",
+          "gifts": [
+            {
+              "partId":"10001",
+              "partName":"打火机"
+            },
+            {
+              "partId":"10002",
+              "partName":"火柴盒"
+            }
+          ]
+        }
+      ]
+  }
+
+}
