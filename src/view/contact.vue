@@ -59,6 +59,7 @@
  <FormWrap  v-on:dealForm="dealForm" :class="{'format':isHidden}"/>
   <!-- 表单密码验证强弱 -->
 <PasswordStrong />
+<PasswordCheck />
   </div>
 
 </template>
@@ -68,6 +69,7 @@ import Map from "@/components/contact/map";
 import Carousel from "@/components/contact/Carousel";
 import FormWrap from "@/components/contact/formWrap";
 import PasswordStrong from "@/components/contact/passwordStrong";
+import PasswordCheck from "@/components/contact/passwordCheck";
 import user from "@/lib/api";
 import Qs from "qs";
 // const data = {
@@ -134,7 +136,7 @@ export default {
     this.getbaseConfig();
     this.getNewsList("0", "1");
   },
-  components: { Map, Carousel,FormWrap,PasswordStrong},
+  components: { Map, Carousel,FormWrap,PasswordStrong,PasswordCheck},
   mounted(){
     console.log(document.querySelector('.format'));
   }

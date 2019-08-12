@@ -1,45 +1,24 @@
  export default function checkStrong(sValue) {
-    var modes = 0;
-    //正则表达式验证符合要求的
-if(sValue.length < 1){
-  modes = 0;
-  alert(1);
-}
-// 数字
-else if(/\d/.test(sValue)){
-modes=1;
-alert(2);
-}
-// 字母
-else if(/[a-z]/.test(sValue)){
-  modes=2;
-  alert(3);
-  }
-  else if(/[A-Z]/.test(sValue)){
-    modes=3;
-    }
-    else{
-      modes=4;
-    }
-
-    // if (sValue.length < 1) return modes;
-    // if (/\d/.test(sValue)) modes++; //数字
-    // if (/[a-z]/.test(sValue)) modes++; //小写
-    // if (/[A-Z]/.test(sValue)) modes++; //大写  
-    // if (/\W/.test(sValue)) modes++; //特殊字符
-  
-    //逻辑处理
-    switch (modes) {
-      case 1:
-        return 1;
-        break;
-      case 2:
-        return 2;
-        break;
-      case 3:
-      case 4:
-        return sValue.length < 12 ? 3 : 4
-        break;
-    }
-    return modes;
-  }
+   let modes;
+   //正则表达式验证符合要求的
+   if (sValue.length <1) {
+     modes = 0;
+   }
+   // 含数字非纯数字
+   else if (/\d/.test(sValue)) {
+     modes = 1;
+   }
+   // 含小写字母非纯
+   else if (/[a-z]/.test(sValue)) {
+     modes = 2;
+   }
+   // 含大写字母
+   else if (/[A-Z]/.test(sValue)) {
+     modes = 3;
+   }
+   // 含特殊字符
+   else {
+     modes = 4;
+   }
+   return modes;
+ }

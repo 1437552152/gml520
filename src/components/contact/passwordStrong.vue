@@ -13,9 +13,9 @@
     <!-- 强弱标志 -->
     <div class="input_span">
       <label style="margin-left:40px;">强度:</label>
-      <span id="one" :class="formInline.isHidden?stronger1:simplity"></span>
-      <span id="two" :class="formInline.isHidden?stronger2:simplity"></span>
-      <span id="three" :class="formInline.isHidden?stronger3:simplity"></span>
+      <span id="one" :class="formInline.isHidden===1?'stronger1':(formInline.isHidden===2?'stronger2':'stronger3')"></span>
+      <!-- <span id="two" :class="formInline.isHidden===2?'stronger2':''"></span>
+      <span id="three" :class="formInline.isHidden===3?'stronger3':''"></span> -->
     </div>
     <div id="font">
       <span>弱</span>
@@ -56,7 +56,6 @@ export default {
         callback();
       }
     };
-
     const validatePassCheck = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("请再次输入密码"));
@@ -73,11 +72,8 @@ export default {
         user: "",
         password: "",
         rpassword: "",
-        msgText: "",
-        isHidden: false,
-        stronger1:'stronger1',
-        stronger2:'stronger2',
-        stronger3:'stronger3',
+        // msgText: "",
+        isHidden:1,
         // simplity:'simplity'
       },
       ruleInline: {
@@ -93,7 +89,7 @@ export default {
           {
             required: true,
             // message: "请输入密码",
-            trigger: "blur",
+            // trigger: "onChange",
             validator: validatePass
           }
         ],
@@ -119,44 +115,56 @@ export default {
       });
     },
     password(newValue) { 
-      this.msgText = checkStrong(newValue);
-      console.log(this.msgText);
-      if (this.msgText == 1) {
-        this.formInline.isHidden = true;
-      } else {
-        this.formInline.isHidden = false;
+     let flag= checkStrong(newValue);
+      if(flag===1||flag===0){
+        this.formInline.isHidden = 1;
+      }else if(flag===2){
+        this.formInline.isHidden = 2;
+      }else{
+          this.formInline.isHidden =3;
       }
-      if (this.msgText == 2) {
-        this.formInline.isHidden = true;
-      } else {
-        this.formInline.isHidden = false;
-      }
-      if (this.msgText == 4) {
-        this.formInline.isHidden = true;
-      } else {
-        this.formInline.isHidden = false;
-      }
+
+      // console.log(this.msgText);
+      // if (this.msgText == 1) {
+      //   this.formInline.isHidden = true;
+      // } else {
+      //   this.formInline.isHidden = false;
+      // }
+      // if (this.msgText == 2) {
+      //   this.formInline.isHidden = true;
+      // } else {
+      //   this.formInline.isHidden = false;
+      // }
+      // if (this.msgText == 4||this.msgText==3) {
+      //   this.formInline.isHidden = true;
+      // } else {
+      //   this.formInline.isHidden = false;
+      // }
     }
+  }
+  ,created(){
+
+ 
   }
   // watch: {}
 };
 </script>
 <style lang="less" scoped>
-.input_span span {
-  display: inline-block;
-  width: 85px;
-  height: 10px;
-  background: #eee;
-  line-height: 20px;
-}
+// .input_span span {
+//   display: inline-block;
+//   width: 85px;
+//   height: 10px;
+//   background: #eee;
+//   line-height: 20px;
+// }
 
-#one {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-right: 0px solid;
-  margin-left: 20px;
-  margin-right: 3px;
-}
+// #one {
+//   border-top-left-radius: 5px;
+//   border-bottom-left-radius: 5px;
+//   border-right: 0px solid;
+//   margin-left: 20px;
+//   margin-right: 3px;
+// }
 
 #two {
   border-left: 0px solid;
@@ -183,13 +191,25 @@ export default {
   color: #00d1b2;
 }
 .stronger1 {
-  background: red;
+     background: linear-gradient(45deg, red, #eee);
+    display: inline-block;
+    width: 300px;
+    height: 10px;
+    border-radius: 10px;
 }
 .stronger2 {
-  background: green;
+     background: linear-gradient(45deg,transparent, green);
+    display: inline-block;
+    width: 300px;
+    height: 10px;
+    border-radius: 10px;
 }
 .stronger3 {
-  background: yellow;
+      background: linear-gradient(45deg, transparent, yellow);
+    display: inline-block;
+    width: 300px;
+    height: 10px;
+    border-radius: 10px;
 }
 .simplity{
   background: #eee;

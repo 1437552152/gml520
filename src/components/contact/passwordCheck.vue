@@ -11,8 +11,15 @@
       </Input>
     </FormItem>
     <!-- 强弱标志 -->
-    <Progress :percent="percent" />
+    <Progress
+      :percent="formInline.percents"
+      :status="formInline.status===0?'':(formInline.status===2?'wrong':'')"
+      hide-info
+    />
+
+    {{formInline.status===0?'':(formInline.status===1?'弱':(formInline.status===2?'中':'强'))}}
     <!-- 再次确认密码 -->
+    <div></div>
     <FormItem prop="rpassword">
       <Input type="password" v-model="formInline.rpassword" placeholder="请再次输入密码">
         <Icon type="ios-lock-outline" slot="prepend"></Icon>
@@ -24,10 +31,10 @@
   </Form>
 </template>
 <script>
-import checkStrong from "@/components/js/checkpassStrong.js";
+import checkStrong from "@/util/checkpassStrong";
 export default {
   data() {
-    const validateuser = (rule, value, callback) => {
+    const validateuser = (rule, value, callback) => {   
       if (!value) {
         callback(new Error("请输入用户名"));
       } else if (!/^[a-zA-Z\d]+$/.test(value)) {
@@ -38,6 +45,7 @@ export default {
     };
 
     const validatePass = (rule, value, callback) => {
+      this.add(value);
       if (value === "") {
         callback(new Error("请输入密码"));
       } else {
@@ -61,15 +69,16 @@ export default {
         user: "",
         password: "",
         rpassword: "",
-        msgText: "",
-        percent: 0
+        // msgText: "",
+        percents: 0,
+        status: 0
       },
       ruleInline: {
         user: [
           {
             required: true,
             // message: "请输入用户名",
-            trigger: "blur",
+            // trigger: "blur",
             validator: validateuser
           }
         ],
@@ -77,7 +86,7 @@ export default {
           {
             required: true,
             // message: "请输入密码",
-            trigger: "blur",
+            // trigger: "blur",
             validator: validatePass
           }
         ],
@@ -85,7 +94,7 @@ export default {
           {
             required: true,
             // message: "请再次输入密码",
-            trigger: "blur",
+            // trigger: "blur",
             validator: validatePassCheck
           }
         ]
@@ -103,26 +112,30 @@ export default {
       });
     },
 
-    add(newValue, oldValue) {
-      this.msgText = checkStrong(newValue);
-      if (this.msgText > 1 || this.msgText == 1) {
-        this.percent += 33;
+    add(newValue) {
+      let flag = checkStrong(newValue);
+      console.log(flag);
+      if (flag === 0) {
+        this.formInline.percents = 0;
+        this.formInline.status = 0;
+      } else if (flag === 1) {
+        this.formInline.percents = 33;
+        this.formInline.status = 1;
+      } else if (flag === 2) {
+        this.formInline.percents = 66;
+        // 第一次输入字母呈现红色,删除密码,再次输入的时候,却变成了蓝色?
+        this.formInline.status = 2;
       } else {
-        this.percent == 0;
-      }
-      if (this.msgText > 2 || this.msgText == 2) {
-        this.percent += 66;
-      } else {
-        this.percent == 0;
-      }
-      if (this.msgText == 4) {
-        this.percent += 100;
-      } else {
-        this.percent == 0;
+        this.formInline.percents = 100;
+          this.formInline.status = 3;
       }
     }
   }
   // watch: {}
 };
 </script>
-
+<style>
+.ivu-progress {
+  width: 50%;
+}
+</style>
