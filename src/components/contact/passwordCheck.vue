@@ -11,12 +11,7 @@
       </Input>
     </FormItem>
     <!-- 强弱标志 -->
-    <Progress
-      :percent="formInline.percents"
-      :status="formInline.status===0?'':(formInline.status===2?'wrong':'')"
-      hide-info
-    />
-
+    <Progress :percent="formInline.percents" :status="formInline.status===0?'':(formInline.status===2?'wrong':'')" hide-info/>
     {{formInline.status===0?'':(formInline.status===1?'弱':(formInline.status===2?'中':'强'))}}
     <!-- 再次确认密码 -->
     <div></div>
@@ -34,7 +29,7 @@
 import checkStrong from "@/util/checkpassStrong";
 export default {
   data() {
-    const validateuser = (rule, value, callback) => {   
+    const validateuser = (rule, value, callback) => {
       if (!value) {
         callback(new Error("请输入用户名"));
       } else if (!/^[a-zA-Z\d]+$/.test(value)) {
@@ -127,7 +122,7 @@ export default {
         this.formInline.status = 2;
       } else {
         this.formInline.percents = 100;
-          this.formInline.status = 3;
+        this.formInline.status = 3;
       }
     }
   }

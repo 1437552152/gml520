@@ -27,12 +27,15 @@ axios.interceptors.request.use(
       arrayFormat: "repeat"
     });
     console.log("config.data==>",config.data);
+    let token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoieWF0ZSIsImlhdCI6MTU2NTY2NjE1NywiZXhwIjoxNTY1NzA5MzU3fQ.lX65lx4K6tqRY3TVLPkG2mBocFIrf66yiwH-5PQiKbY';
     config.headers = {
-      'Content-Type':'application/x-www-form-urlencoded'
-    }
+      'Content-Type':'application/x-www-form-urlencoded',
+      'token':token
+    };
+
     // if(token){
-    //   config.params = {'token':token}
-    // }
+    //    config.headers.Authorization = {'token':token};
+    // };
     return config;
   },
   error => {
