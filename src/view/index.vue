@@ -34,7 +34,7 @@
 <div class="linkto" @click="toDo"><Button type="primary">点我知道如何操作脚手架</Button></div>
 <!-- 路由跳转 -->
  <div class="linkto">
-   <router-link to='/refresh'><Button type="primary">点我去找refresh文件</Button></router-link>
+   <router-link to='/refresh'><Button type="primary">产品类型列表的增删改查</Button></router-link>
    </div>
  <!-- 表格增删改查 -->
     <div class="linkto">
@@ -49,6 +49,10 @@
    <!-- 富文本编辑器 -->
     <div class="linkto">
    <router-link to='/editor'><Button type="primary">编辑器</Button></router-link>
+   </div>
+   <!-- 导入导出 -->
+    <div class="linkto">
+   <router-link to='/import'><Button type="primary">导入导出</Button></router-link>
    </div>
   </div>
 </template>

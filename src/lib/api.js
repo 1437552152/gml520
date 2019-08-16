@@ -6,8 +6,12 @@
 //     local:'static/list.json',
 // };
 const admin={
-    useRolelist:'useRolelist',    //获取后台基础配置
-    news:'news'
+    productConfig:'productConfig',
+    detail:'productConfig/detail',
+    update:'productConfig/update',
+    delete:'productConfig/delete',
+    add:'productConfig/add',
+    upload:'upload'
 }
 
 // export default user;

@@ -7,6 +7,7 @@ import Sql from '@/view/sql'
 import Detail from '@/view/detail'
 import Shopping from '@/view/shopping'
 import Editor from '@/view/editor'
+import Import from '@/view/import'
 Vue.use(Router)
 
 export default new Router({
@@ -45,6 +46,11 @@ export default new Router({
       path: '/editor',
       name: 'editor',
       component: Editor
+    },
+    {
+      path: '/import',
+      name: 'import',
+      component: Import
     },
   ]
 })
