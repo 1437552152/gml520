@@ -6,11 +6,13 @@ import axios from 'axios';
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 import Host from './lib/env'
-import qs from 'qs';
+import qs from 'qs';//安装qs依赖
 import'../static/Ueditor/ueditor.config.js'
 import'../static/Ueditor/ueditor.all.min.js'
 import'../static/Ueditor/lang/zh-cn/zh-cn.js'
 import'../static/Ueditor/ueditor.parse.min.js'
+import Echart from 'echarts';//安装echarts依赖
+
 // import Viewer from 'v-viewer'
 // import 'viewerjs/dist/viewer.css'
 
@@ -18,6 +20,7 @@ import'../static/Ueditor/ueditor.parse.min.js'
 axios.defaults.baseURL = Host;
 // axios.defaults.withCredentials = true;
 Vue.prototype.$http = axios;
+Vue.prototype.$echarts = Echart;
 Vue.config.productionTip = false
 Vue.use(iView)
 //引入图片查看器

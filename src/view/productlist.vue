@@ -86,16 +86,21 @@ export default {
     return {
       tableTitle: [
         {
-          title: "标题",
+          title: "产品名称",
           key: "title",
           align: "center"
         },
         {
-          title: "产品类型图标",
+          title: "关键词",
+          key: "keyword",
+          align: "center"
+        },
+        {
+          title: "产品图片",
           key: "img",
           align: "center",
           render: (h, params) => {
-            const pic = params.row.img;
+            const pic = params.row.pic;
             let text = "";
             return h("div", [
               h("img", {
@@ -112,39 +117,14 @@ export default {
           }
         },
         {
-          title: "排序",
-          key: "orderBy",
+          title: "产品类型",
+          key: "typeTitle",
           align: "center",
-          render: (h, params) => {
-            let tmpStr = "";
-            const sort=params.row.orderBy;
-            if (sort > 1) {
-              tmpStr = "未通过";
-            } else if (sort == 1) {
-              tmpStr = "已通过";
-            } else {
-              tmpStr = "正在审核";
-            }
-            return h(         
-              "span",
-              {
-                style: {
-                  color:
-                    sort > 1
-                      ? "#ed3f14"
-                      : sort == 1
-                      ? "#19be6b"
-                      : "#2d8cf0"
-                }
-              },
-              tmpStr
-            );
-          }
         },
         {
-          title: "创建时间",
-          key: "time",
-          align: "center"
+          title: "简介",
+          key: "des",
+          align: "center",
         },
         {
           title: "操作",
@@ -222,7 +202,7 @@ export default {
     gettableList(pageNo = "1", pageSize = "10") {
       console.log("admin==>", admin.productConfig);
       this.$http
-        .post(admin.productConfig, {
+        .post(admin.team, {
           pageNo: 1,
           pageSize: 10
         })

@@ -8,6 +8,8 @@ import Detail from '@/view/detail'
 import Shopping from '@/view/shopping'
 import Editor from '@/view/editor'
 import Import from '@/view/import'
+import Echart from '@/view/echart'
+import Productlist from '@/view/productlist'
 Vue.use(Router)
 
 export default new Router({
@@ -51,6 +53,16 @@ export default new Router({
       path: '/import',
       name: 'import',
       component: Import
+    },
+    {
+      path: '/echart',
+      name: 'echart',
+      component: Echart
+    },
+    {
+      path: '/productlist',
+      name: 'productlist',
+      component: Productlist
     },
   ]
 })

@@ -9,9 +9,9 @@
 // import a from '../util/a.js';
 // 2
 // import {a} from '../util/a.js'
-// 3
-// import axis from '../util/a.js'
 // 4
+// import axis from '../util/a.js'
+// 3
 import {x,y} from '../util/a.js'
 export default {
   data() {

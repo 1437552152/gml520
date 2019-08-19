@@ -11,7 +11,9 @@ const admin={
     update:'productConfig/update',
     delete:'productConfig/delete',
     add:'productConfig/add',
-    upload:'upload'
+    upload:'upload',
+    getLookRecord:'getLookRecord',
+    team:'team'
 }
 
 // export default user;
