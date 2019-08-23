@@ -17,9 +17,9 @@ export default {
   data() {
     return {
       parentMsg: [
-        { id: "1", name: "小叶爸爸",age:'29' },
-        { id: "2", name: "小叶妈妈",age:'28' },
-        { id: "3", name: "小叶宝宝",age:'1' }
+        { id: "1", name: "小明",age:'29' },
+        { id: "2", name: "小红",age:'28' },
+        { id: "3", name: "小华",age:'1' }
       ],
       
       sortType: 'age'

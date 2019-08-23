@@ -31,66 +31,78 @@
     <div :style="border">8、绑定内联样式</div>
     <!-- 练习结束 -->
     <div class="center-btn">
-    <div class="linkto">
-      <router-link to="/contact">
-        <Button type="primary">点我到联系我们页面</Button>
-      </router-link>
-    </div>
-    <!-- 生命周期 -->
-    <div class="linkto" @click="toRescue">
-      <Button type="primary">点我理解生命周期</Button>
-    </div>
-    <!-- Vue脚手架（vue-cli）并创建一个项目 -->
-    <div class="linkto" @click="toDo">
-      <Button type="primary">点我知道如何操作脚手架</Button>
-    </div>
-    <!-- 产品类型的增删改查 -->
-    <div class="linkto">
-      <router-link to="/refresh">
-        <Button type="primary">产品类型的增删改查</Button>
-      </router-link>
-    </div>
-    <!-- 产品列表的增删改查 -->
-    <div class="linkto">
-      <router-link to="/productlist">
-        <Button type="primary">产品列表的增删改查</Button>
-      </router-link>
-    </div>
-    <!-- 表格增删改查 -->
-    <div class="linkto">
-      <router-link to="/sql">
-        <Button type="primary">表格的增删改查</Button>
-      </router-link>
-    </div>
-    <!-- 组件之间传值 -->
-    <div class="linkto" @click="toValue">
-      <Button type="primary">点我知道父子组件之间如何传值</Button>
-    </div>
-    <!-- 购物车 -->
-    <div class="linkto">
-      <router-link to="/shopping">
-        <Button type="primary">点我去购物</Button>
-      </router-link>
-    </div>
-    <!-- 富文本编辑器 -->
-    <div class="linkto">
-      <router-link to="/editor">
-        <Button type="primary">编辑器</Button>
-      </router-link>
-    </div>
-    <!-- 导入导出 -->
-    <div class="linkto">
-      <router-link to="/import">
-        <Button type="primary">导入导出</Button>
-      </router-link>
-    </div>
-    <!-- echarts图表 -->
-    <div class="linkto">
-      <router-link to="/echart">
-        <Button type="primary">echarts图表</Button>
-      </router-link>
-    </div>
-    <!--  -->
+      <div class="linkto">
+        <router-link to="/contact">
+          <Button type="primary">点我到联系我们页面</Button>
+        </router-link>
+      </div>
+      <!-- 生命周期 -->
+      <div class="linkto" @click="toRescue">
+        <Button type="primary">点我理解生命周期</Button>
+      </div>
+      <!-- Vue脚手架（vue-cli）并创建一个项目 -->
+      <div class="linkto" @click="toDo">
+        <Button type="primary">点我知道如何操作脚手架</Button>
+      </div>
+      <!-- 产品类型的增删改查 -->
+      <div class="linkto">
+        <router-link to="/refresh">
+          <Button type="primary">产品类型的增删改查</Button>
+        </router-link>
+      </div>
+      <!-- 产品列表的增删改查 -->
+      <div class="linkto">
+        <router-link to="/productlist">
+          <Button type="primary">产品列表的增删改查</Button>
+        </router-link>
+      </div>
+      <!-- 表格增删改查 -->
+      <div class="linkto">
+        <router-link to="/sql">
+          <Button type="primary">表格的增删改查</Button>
+        </router-link>
+      </div>
+      <!-- 组件之间传值 -->
+      <div class="linkto" @click="toValue">
+        <Button type="primary">点我知道父子组件之间如何传值</Button>
+      </div>
+      <!-- 购物车 -->
+      <div class="linkto">
+        <router-link to="/shopping">
+          <Button type="primary">点我去购物</Button>
+        </router-link>
+      </div>
+      <!-- 富文本编辑器 -->
+      <div class="linkto">
+        <router-link to="/editor">
+          <Button type="primary">编辑器</Button>
+        </router-link>
+      </div>
+      <!-- 导入导出 -->
+      <div class="linkto">
+        <router-link to="/import">
+          <Button type="primary">导入导出</Button>
+        </router-link>
+      </div>
+      <!-- echarts图表 -->
+      <div class="linkto">
+        <router-link to="/echart">
+          <Button type="primary">echarts图表</Button>
+        </router-link>
+      </div>
+      <!-- promise处理异步请求 -->
+      <div class="linkto">
+        <router-link to="/Promise">
+          <Button type="primary">处理2个异步请求</Button>
+        </router-link>
+      </div>
+      <!-- ES7 aync处理异步请求 -->
+      <div class="linkto">
+        <router-link to="/arrcopy">
+          <Button type="primary">数组复制</Button>
+        </router-link>
+      </div>
+      <!--  -->
     </div>
   </div>
 </template>
@@ -163,7 +175,7 @@ export default {
   width: 20%;
   float: left;
 }
-.center-btn{
+.center-btn {
   height: 200px;
 }
 </style>

@@ -10,6 +10,8 @@ import Editor from '@/view/editor'
 import Import from '@/view/import'
 import Echart from '@/view/echart'
 import Productlist from '@/view/productlist'
+import IPromise from '@/view/Promise'
+import Arrcopy from '@/view/arrcopy'
 Vue.use(Router)
 
 export default new Router({
@@ -63,6 +65,16 @@ export default new Router({
       path: '/productlist',
       name: 'productlist',
       component: Productlist
+    },
+    {
+      path: '/Promise',
+      name: 'Promise',
+      component: IPromise
+    },
+    {
+      path: '/arrcopy',
+      name: 'arrcopy',
+      component: Arrcopy
     },
   ]
 })
