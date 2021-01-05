@@ -12,7 +12,7 @@
     "package": "electron-packager ./ chat --out --arch=ia32  ./webApp --electron-version 4.1.0 --ignore=node_modules --icon=icon.ico"
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "echarts": "^4.2.1",
     "iview": "^2.7.4",
     "less": "^3.9.0",
